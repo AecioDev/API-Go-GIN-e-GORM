@@ -20,7 +20,7 @@ func (pu *ProductUsecase) GetProducts() ([]model.Product, error) {
 	return pu.repository.GetProducts()
 }
 
-func (pu *ProductUsecase) GetProductById(productId int) (*model.Product, error) {
+func (pu *ProductUsecase) GetProductById(productId uint) (*model.Product, error) {
 	return pu.repository.GetProductById(productId)
 }
 
@@ -40,6 +40,6 @@ func (pu *ProductUsecase) UpdateProduct(product model.Product) (model.Product, e
 	return pu.repository.UpdateProduct(product)
 }
 
-func (pu *ProductUsecase) DeleteProductById(productId int) (string, error) {
+func (pu *ProductUsecase) DeleteProductById(productId uint) (string, error) {
 	return pu.repository.DeleteProductById(productId)
 }

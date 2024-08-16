@@ -31,7 +31,7 @@ func (pr *ProductRepository) GetProducts() ([]model.Product, error) {
 	return productList, nil
 }
 
-func (pr *ProductRepository) GetProductById(produtoId int) (*model.Product, error) {
+func (pr *ProductRepository) GetProductById(produtoId uint) (*model.Product, error) {
 
 	var productObj model.Product
 
@@ -45,7 +45,7 @@ func (pr *ProductRepository) GetProductById(produtoId int) (*model.Product, erro
 	return &productObj, nil
 }
 
-func (pr *ProductRepository) CreateProduct(product model.Product) (int, error) {
+func (pr *ProductRepository) CreateProduct(product model.Product) (uint, error) {
 
 	result := pr.connection.Create(&product)
 
@@ -69,9 +69,9 @@ func (pr *ProductRepository) UpdateProduct(product model.Product) (model.Product
 	return product, nil
 }
 
-func (pr *ProductRepository) DeleteProductById(productId int) (string, error) {
+func (pr *ProductRepository) DeleteProductById(productId uint) (string, error) {
 
-	result := pr.connection.Delete(model.Product{}, productId)
+	result := pr.connection.Delete(&model.Product{}, productId)
 
 	if result.Error != nil {
 		fmt.Println(result.Error.Error())
