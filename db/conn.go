@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	host     = "localhost"
+	host     = "go_db"
 	port     = 5432
 	user     = "postgres"
 	password = "1234"
@@ -23,6 +23,8 @@ const (
 func ConnectDB() (*gorm.DB, error) {
 
 	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+
+	fmt.Println("String Conexão: ", dsn)
 
 	err := CreateBD(dsn)
 	if err != nil {
